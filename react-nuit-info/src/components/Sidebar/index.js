@@ -3,7 +3,7 @@ import lapin from '../../assets/images/lapin.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link, NavLink } from 'react-router-dom'
 import {faLinkedin,faGithub} from '@fortawesome/free-brands-svg-icons'
-import {faEnvelope, faHome, faUser, faSuitcase, faFolder} from '@fortawesome/free-solid-svg-icons'
+import {faGear, faHome, faCookie, faGamepad, faFolder} from '@fortawesome/free-solid-svg-icons'
 
 const Sidebar = () => (
     <div className = "nav-bar">
@@ -19,16 +19,16 @@ const Sidebar = () => (
                 <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
             </NavLink>
             <NavLink exact="true" activeClassName="active" className="gamehub-link" to="/gamehub">
-                <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
+                <FontAwesomeIcon icon={faGamepad} color="#4d4d4e" />
             </NavLink>
             <NavLink exact="true" activeClassName="active" className="cookie-clicker-link" to="/cookieclicker">
-                <FontAwesomeIcon icon={faSuitcase} color="#4d4d4e" />
+                <FontAwesomeIcon icon={faCookie} color="#4d4d4e" />
             </NavLink>
             <NavLink exact="true" activeClassName="active" className="portfolio-link" to="/portfolio">
                 <FontAwesomeIcon icon={faFolder} color="#4d4d4e" />
             </NavLink>
-            <NavLink exact="true" activeClassName="active" className="contact-link" to="/contact">
-                <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
+            <NavLink exact="true" activeClassName="active" className="settings-link" to="/settings">
+                <FontAwesomeIcon icon={faGear} color="#4d4d4e" />
             </NavLink>
         </nav>
         <ul>
