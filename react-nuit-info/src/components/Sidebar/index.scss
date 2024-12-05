@@ -1,0 +1,142 @@
+.nav-bar {
+  background: #181818;
+  width: 5%;
+  min-width: 60px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    display: block;
+    text-align: center;
+
+    img {
+      display: block;
+      margin: 8px auto;
+      width: 60%;
+      height: auto;
+
+      &.sub-logo {
+        width: 50px;
+      }
+    }
+
+    h3 {
+      line-height: 20px;
+      text-align: center;
+      font-size: 15px;
+      margin: 0;
+      color: #ffffff;
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    a {
+      font-size: 22px;
+      color: #4d4d4e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 51px;
+      position: relative;
+      text-decoration: none;
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      svg {
+        width: 40%;
+        height: auto;
+      }
+
+      &:hover {
+        color: #ffd700;
+      }
+
+      &:after {
+        content: '';
+        font-size: 12px;
+        letter-spacing: 1px;
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transition: all 0.3s ease-out;
+      }
+    }
+
+    a.active svg {
+      color: #ffd700;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        padding: 8px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        line-height: 16px;
+        color: #4d4d4e;
+
+        &:hover {
+          color: #ffd700;
+        }
+
+        &:after {
+          content: '';
+          font-size: 12px;
+          letter-spacing: 1px;
+          position: absolute;
+          bottom: 0;
+          display: block;
+          width: 100%;
+          text-align: center;
+          opacity: 0;
+          transition: all 0.3s ease-out;
+        }
+
+        svg {
+          width: 40%;
+          height: auto;
+          &.kaggle-icon {
+            width: 26%;
+            color: #4d4d4e;
+          }
+        }
+      }
+    }
+  }
+}
