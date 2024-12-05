@@ -1,0 +1,42 @@
+.cookie-clicker {
+    text-align: center;
+    background-color: #1d3557;
+    color: #f1faee;
+    padding: 20px;
+    min-height: 100vh;
+    
+    .cookie {
+        width: 200px;
+        height: 200px;
+        //background-image: url('/path/to/cookie-image.png');
+        background-size: cover;
+        cursor: pointer;
+        transition: transform 0.2s;
+
+        &:active {
+            transform: scale(0.9);
+        }
+    }
+
+    .score {
+        margin-top: 20px;
+        font-size: 24px;
+        color: #333;
+    }
+
+    .button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+}
