@@ -14,7 +14,7 @@ const CookieClicker = () => {
             <p>Cookies: {count}</p>
             <button onClick={handleClick}>Click me!</button>
         </div>
-    );ﬂ
+    );
 };
 
 export default CookieClicker;
