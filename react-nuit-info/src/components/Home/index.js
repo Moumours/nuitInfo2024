@@ -7,9 +7,10 @@ import './index.scss';
 const Home = () => {
     const [letterClass, setLetterClass] = useState('text-animate');
 
-    const nameArray = [' ', 'C', 'o', 'u', 'c', 'o', 'u'];
-    const jobArray1 = ['M', 'a', 'r', 'i', 'e', ' ', 'l', 'a'];
-    const jobArray2 = ['g', 'o', 'u', 'r', 'm', 'a', 'n', 'd', 'e'];
+    const line1 = ['N', 'o', 'u', 's', ' ', 's', 'o', 'm', 'm', 'e', 's'];
+    const line2 = [' ', 'l', 'e', 's',' ', 'D', 'o', 'g', 'g', 'o', 's', ];
+    const line3 = [ 'G', 'o', 'u', 'r', 'm', 'a', 'n', 'd', 's'];
+    
 
     useEffect(() => {
         const timeout = setTimeout(() => {
@@ -26,23 +27,23 @@ const Home = () => {
                     <h1>
                         <AnimatedLetters
                             letterClass={letterClass}
-                            strArray={nameArray}
+                            strArray={line1}
                             idx={15}
                         />
                         <br />
                         <AnimatedLetters
                             letterClass={letterClass}
-                            strArray={jobArray1}
+                            strArray={line2}
                             idx={22}
                         />
                         <br />
                         <AnimatedLetters
                             letterClass={letterClass}
-                            strArray={jobArray2}
+                            strArray={line3}
                             idx={35}
                         />
                     </h1>
-                    <h2><b>KPI / Machine Learning / NLP</b></h2>
+                    <h2><b>Woof Woof comme on dit</b></h2>
                 </div>
             </div>
             <Loader type="ball-grid-pulse" />
