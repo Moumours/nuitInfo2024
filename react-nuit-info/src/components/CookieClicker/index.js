@@ -13,8 +13,12 @@ const CookieClicker = () => {
     const sidebarWidth = 100;
 
     const handleClick = () => {
-        if (count % 10 === 9) { 
-            setMessage("JE ..... Nan cette fois-ci, je passe mon tour... Après tant de clics tu ne sais toujours pas faire un 'clique' ?!");
+        if (count === 99) {  // 100e clic
+            setMessage("Bravo à toi d'avoir fini ce clicker !");
+            setCount(count + 1);
+        }
+        else if (count % 10 === 9) {  // tous les 10 clics
+            setMessage("JE ..... Nan cette fois-ci, je passe mon tour... Après tant de clics tu ne sais toujours pas faire un 'CLIQUE' ?!");
         } else {
             const randomMessages = [
                 "SERIEUSEMENT ? TU NE SAIS PAS FAIRE UN 'CLIQUE' ?!",
@@ -29,7 +33,7 @@ const CookieClicker = () => {
 
     const handleKeyPress = useCallback((e) => {
         if (/[a-zA-Z]/.test(e.key) && !e.metaKey && !e.ctrlKey && !e.altKey && !e.shiftKey ) {
-            if ( count < 10){
+            if (count < 35){  // 35 clics avant de déclencher la partie de saisie
                 const userInput = typed + e.key.toUpperCase();
 
                 if (userInput === "CLIQUE") {
@@ -42,8 +46,8 @@ const CookieClicker = () => {
                     setMessage("Qu'est ce que tu fais exactement..... 'CLIQUE' c'est pas compliqué !");
                     setTyped("");
                 }
-            } else {
-                setMessage("Tu as écrit 'CLIQUE' 10 fois, c'est bien mais... sauras-tu cliquer cette fois-ci ?");
+            } else if (count >= 35 && count < 80) { // Transition vers la partie vocal
+                setMessage("Tu as écrit 'CLIQUE' 35 fois, c'est bien mais... sauras-tu dire 'CLIQUE' ?");
                 handleVoiceClick();
             }
         } else {
@@ -79,7 +83,7 @@ const CookieClicker = () => {
     }, [handleKeyPress]); // Ajout de handleKeyPress en dépendance
 
     const handleVoiceClick = useCallback(() => {
-        if (!isListening && count >= 10 && count < 20) {
+        if (!isListening && count >= 35 && count < 80) {
             setIsListening(true);
             recognitionRef.current.start();
             console.log("ON ECOUTE");
@@ -97,7 +101,6 @@ const CookieClicker = () => {
         recognition.lang = 'fr-FR';
         recognition.continuous = false;
         recognition.interimResults = false;
-        console.log("RECOGNITION", recognition);
         recognition.onstart = () => {
             setMessage("Je t'écoute... Dis 'CLIQUE'.");
         };
@@ -126,16 +129,34 @@ const CookieClicker = () => {
     }, [count]);
 
     useEffect(() => {
-        if (count >= 10 && count < 20 && !isListening) {
+        if (count >= 35 && count < 45 && !isListening) {
             handleVoiceClick();
-        } else if (count >= 20 && isListening) {
+        } else if (count >= 45 && isListening) {
             recognitionRef.current.stop();
             setIsListening(false);
         }
     }, [count, handleVoiceClick, isListening]); // Ajout de handleVoiceClick et isListening en dépendance
 
+    // Gestion du clic droit
+    const handleRightClick = (e) => {
+        e.preventDefault(); // Empêche le menu contextuel
+        if (count >= 45 && count < 99) {
+            setMessage("Tu vois quand tu veux...");
+            setCount(count + 1);
+        }
+        else if (count >= 99) {  // Objectif final atteint
+            setMessage("Aller je sais que tu meurs d'envie de cliquer....");
+            //le clic gauche est autorisé
+        }
+    };
+
+    // Fonction pour ajouter des cookies rapidement
+    const addCookies = () => {
+        setCount(count + 1);
+    };
+
     return (
-        <div className="cookie-clicker">
+        <div className="cookie-clicker" onContextMenu={handleRightClick}>
             <h1>Cookie Clicker</h1>
             <p>Cookies: {count}</p>
             <p>{message}</p>
@@ -146,8 +167,15 @@ const CookieClicker = () => {
             >
                 Click me!
             </button>
+
+            {/* Bouton pour ajouter des cookies rapidement */}
+            <pre>
+                &lt;button onClick={addCookies} className="test-add-cookie"&gt;
+                    Ajouter un cookie !
+                &lt;/button
+            </pre>
         </div>
     );
 };
-
+ 
 export default CookieClicker;
