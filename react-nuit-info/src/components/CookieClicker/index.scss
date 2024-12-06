@@ -4,11 +4,10 @@
     color: #f1faee;
     padding: 20px;
     min-height: 100vh;
-    
+
     .cookie {
         width: 200px;
         height: 200px;
-        //background-image: url('/path/to/cookie-image.png');
         background-size: cover;
         cursor: pointer;
         transition: transform 0.2s;
@@ -37,6 +36,40 @@
 
         &:hover {
             background-color: #0056b3;
+        }
+    }
+
+    .cookie-button {
+        width: 40px;
+        height: 40px;
+        background-color: #d2a679;
+        border: 2px solid #8c5d3b;
+        border-radius: 8px;
+        position: relative;
+        cursor: pointer;
+        font-size: 10px;  /* Taille du texte dans le bouton réduit */
+        padding: 0;
+        overflow: visible;
+        display: inline-block;
+
+        pre {
+            margin: 0;
+            padding: 0;
+            font-size: 10px; 
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: normal;
+            word-wrap: break-word;
+            line-height: 1.2;
+            pointer-events: none;
+        }
+
+        &:hover {
+            background-color: #c79f66;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
     }
 }
